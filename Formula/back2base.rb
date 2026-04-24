@@ -13,7 +13,7 @@ class Back2base < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/ramseymcgrath/back2base-dist/releases/download/v0.19.2/back2base_darwin_amd64.tar.gz"
-      sha256 "aefe0c9e195eece926c9aab90796c501fd59914e06a195b8637b81cbb0cf107f"
+      sha256 "dbaadf9d1d8366b4a7d51329ce8dc578c9307c6dc530c42f595bf0a82aecd4ec"
 
       define_method(:install) do
         bin.install "back2base"
@@ -21,7 +21,7 @@ class Back2base < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/ramseymcgrath/back2base-dist/releases/download/v0.19.2/back2base_darwin_arm64.tar.gz"
-      sha256 "5f3411eed9bf19c4791133cf26a1d59c8a0d7362fb562ec4965c69a33d36c7c2"
+      sha256 "f6cc62fc930347bddd604aae88e890a64fc6be49a3360e8cf27f354eaf432ab6"
 
       define_method(:install) do
         bin.install "back2base"
@@ -32,14 +32,14 @@ class Back2base < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/ramseymcgrath/back2base-dist/releases/download/v0.19.2/back2base_linux_amd64.tar.gz"
-      sha256 "3ad3db9af4b39ded7a9724ea5c6aa397a37613c29abd8735db7b5d9460e16601"
+      sha256 "23c24c873f5b4945a2ea71d17b5d84da4eb37b2b3f1767a44a4808b5ccb81eba"
       define_method(:install) do
         bin.install "back2base"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/ramseymcgrath/back2base-dist/releases/download/v0.19.2/back2base_linux_arm64.tar.gz"
-      sha256 "82507e0217b1492508405dc3997650ba0e36109875fc2a993314a39bc1021234"
+      sha256 "bfef1b32693a9a644ea4fb7880d9b6d753a1859c9479ac8236fdf374371f3370"
       define_method(:install) do
         bin.install "back2base"
       end
