@@ -5,23 +5,23 @@
 class Back2base < Formula
   desc "Containerized Claude Code with curated MCP servers"
   homepage "https://back2base.net"
-  version "0.19.23"
+  version "0.20.0"
   license "MIT"
 
   depends_on "docker" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.19.23/back2base_darwin_amd64.tar.gz"
-      sha256 "531b5bfa32465db3ef0dfcca52a14236fa2644654f936e56783042bab3738ce5"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.20.0/back2base_darwin_amd64.tar.gz"
+      sha256 "5e9c47a4f71bd82c954b27a5230a68779c65dee84327bacbcb71c3c5e8e6aa4c"
 
       define_method(:install) do
         bin.install "back2base"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.19.23/back2base_darwin_arm64.tar.gz"
-      sha256 "dcd3b000f8e0ae7c5e320cd6f42eb41ab7c7154e3e182d40dc1b57f2609d1908"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.20.0/back2base_darwin_arm64.tar.gz"
+      sha256 "2ab7848fe322156534016a9f0381b7b3184423731537992681fd8a3073c66fff"
 
       define_method(:install) do
         bin.install "back2base"
@@ -31,19 +31,44 @@ class Back2base < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.19.23/back2base_linux_amd64.tar.gz"
-      sha256 "ca85981cbff5328f611679d38dfa7567dde7154ce61f033c689c034a7f9e535e"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.20.0/back2base_linux_amd64.tar.gz"
+      sha256 "1efc8201c6d04037ba1ed3bbc5cde61145ea53d611f91eb1d9d3267223870a10"
       define_method(:install) do
         bin.install "back2base"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.19.23/back2base_linux_arm64.tar.gz"
-      sha256 "910b3358d331d73cad7b0710a242e4737f6284d0e74e669a484dcf8034f997d7"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.20.0/back2base_linux_arm64.tar.gz"
+      sha256 "a0e648849c4421c276a9b934a1c48e8ce7537fff72274dee4cee39f24db40aed"
       define_method(:install) do
         bin.install "back2base"
       end
     end
+  end
+
+  def post_install
+    # Best-effort base-image pre-pull so the first `back2base run` doesn't
+    # have to fetch ~500MB on a cold start. Skipped silently when docker
+    # isn't installed or isn't reachable — never fails the brew install.
+    if which("docker")
+      system "docker", "pull", "ramseymcgrath/back2base-base:latest"
+    end
+  end
+
+  def caveats
+    <<~EOS
+      back2base launches a containerized Claude Code session.
+
+      First run pulls the base image (~500MB) and builds a thin local
+      layer on top. To pre-fetch / pre-build ahead of time:
+
+        docker pull ramseymcgrath/back2base-base:latest
+        back2base build
+
+      Sign in to enable cloud sync + memory MCP:
+
+        back2base login
+    EOS
   end
 
   test do
