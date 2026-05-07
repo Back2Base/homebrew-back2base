@@ -5,23 +5,23 @@
 class Back2base < Formula
   desc "Containerized Claude Code with curated MCP servers"
   homepage "https://back2base.net"
-  version "0.23.3"
+  version "0.23.4"
   license "MIT"
 
   depends_on "docker" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.3/back2base_darwin_amd64.tar.gz"
-      sha256 "0adc084170ccb378357ed54be70145e78c1f5c7739497c53d61c0738a0989aba"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.4/back2base_darwin_amd64.tar.gz"
+      sha256 "86f8dff1b5b623edc3fabda269a57abf9d8acc86c3af1be81cb0265cee979de6"
 
       define_method(:install) do
         bin.install "back2base"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.3/back2base_darwin_arm64.tar.gz"
-      sha256 "2e2c66dd74a6ef9a695d9569a16bd586bcfa609507341c3c45f9a3051024e3fe"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.4/back2base_darwin_arm64.tar.gz"
+      sha256 "3d259cd0508f21fb0ac90a79881edaf6f5f366cc1e45ccadc79efc0b8b32dab9"
 
       define_method(:install) do
         bin.install "back2base"
@@ -31,15 +31,15 @@ class Back2base < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.3/back2base_linux_amd64.tar.gz"
-      sha256 "7259d35e202317bdf84a9c28001233910513b4837e9e3ba50319bdd67b34bce4"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.4/back2base_linux_amd64.tar.gz"
+      sha256 "97126e5d170651c217bb283f2e9de686d14bd616127a487e7b2ac5a90e77fb24"
       define_method(:install) do
         bin.install "back2base"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.3/back2base_linux_arm64.tar.gz"
-      sha256 "4e72999ff74c28c06243616d72277c07e5fb9537d614baa8fc73a4feb0af0ec9"
+      url "https://github.com/back2base/back2base-dist/releases/download/v0.23.4/back2base_linux_arm64.tar.gz"
+      sha256 "49682507474af0736550c19033563111f95e4642e914a16864ce6bfa0e02bb8e"
       define_method(:install) do
         bin.install "back2base"
       end
