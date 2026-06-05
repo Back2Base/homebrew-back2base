@@ -5,23 +5,23 @@
 class OssBack2base < Formula
   desc "Containerized Claude Code with a configurable MCP server registry (OSS)"
   homepage "https://github.com/back2base/oss-back2base"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   depends_on "docker" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.0/oss-back2base_darwin_amd64.tar.gz"
-      sha256 "579d2afd36d4ee95a2a16367efb86310c56ad9b398f288aec11b169836e5cb05"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.1/oss-back2base_darwin_amd64.tar.gz"
+      sha256 "d2f455c5ca5c7a99e1ccfd13b95b64b85cfa4a5bea2f5c7fbf761c5f77a3ad23"
 
       define_method(:install) do
         bin.install "oss-back2base"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.0/oss-back2base_darwin_arm64.tar.gz"
-      sha256 "f7e0b8bb2688753b0260c2fddebb2bd9ad058102386b3acc2eb5c0a7d73cdf10"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.1/oss-back2base_darwin_arm64.tar.gz"
+      sha256 "2f2f21948b9ee95b6806a3e811719e29d4d1fb2898b6ab465793a5324d811e96"
 
       define_method(:install) do
         bin.install "oss-back2base"
@@ -31,15 +31,15 @@ class OssBack2base < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.0/oss-back2base_linux_amd64.tar.gz"
-      sha256 "887da544b37e4cae65e401061097bcfa873181c296b3009120dee0653f149ab8"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.1/oss-back2base_linux_amd64.tar.gz"
+      sha256 "6475d8c825e024098a3000da20257b3997af2addf27ecb82491482c8ac3daf63"
       define_method(:install) do
         bin.install "oss-back2base"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.0/oss-back2base_linux_arm64.tar.gz"
-      sha256 "31e65f72128a2da9a58a15f919a41afedc4a1d94cfc01a322a28dfae446c53f2"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.2.1/oss-back2base_linux_arm64.tar.gz"
+      sha256 "5d0174519ad7977d62339e66cd79928cc10c6fef7ad91258d69279f3a5445080"
       define_method(:install) do
         bin.install "oss-back2base"
       end
