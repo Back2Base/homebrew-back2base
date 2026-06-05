@@ -12,16 +12,16 @@ class OssBack2base < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/back2base/oss-back2base/releases/download/v0.1.3/oss-back2base_darwin_amd64.tar.gz"
-      sha256 "c9c3f06b7fd5163ad34564b540120599a5314bd2d5d326fb0c721d06a2b8d82a"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.1.3/oss-back2base_darwin_amd64.tar.gz"
+      sha256 "0c35f70a4ab1a94b68468568652cf8fce3e301c4f5cdda39c3dab94c85073801"
 
       define_method(:install) do
         bin.install "oss-back2base"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/back2base/oss-back2base/releases/download/v0.1.3/oss-back2base_darwin_arm64.tar.gz"
-      sha256 "88dd8bd015a02c81dbf0e5b64fe7c403f4de0082808efd006bd568070ee5ca1b"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.1.3/oss-back2base_darwin_arm64.tar.gz"
+      sha256 "2ab3957ddef493543b6ed86943404a2c978003d39b1c8fa48141c40c455fcb2e"
 
       define_method(:install) do
         bin.install "oss-back2base"
@@ -31,15 +31,15 @@ class OssBack2base < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/oss-back2base/releases/download/v0.1.3/oss-back2base_linux_amd64.tar.gz"
-      sha256 "f5aff41a41f8661d635e8c4f94420b07b76ee51f9d34096514b6769a7771df63"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.1.3/oss-back2base_linux_amd64.tar.gz"
+      sha256 "7daf490ca640db2197420e7061e85bd794508eea6240863a52553df2eb0528be"
       define_method(:install) do
         bin.install "oss-back2base"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/back2base/oss-back2base/releases/download/v0.1.3/oss-back2base_linux_arm64.tar.gz"
-      sha256 "378da68e85f58c412d59757b14b98b8d06a419c27629d8d93fc48bbcc2c02fa6"
+      url "https://github.com/Back2Base/oss-back2base/releases/download/v0.1.3/oss-back2base_linux_arm64.tar.gz"
+      sha256 "6dcae7de6fd5b5dd4335d1cf3fbd5845486f20cf0f7f40ae4ffe1867594882a4"
       define_method(:install) do
         bin.install "oss-back2base"
       end
